@@ -1,0 +1,22 @@
+#include<iostream>
+using namespace std;
+void chgStr(char is[],char os[]){
+	int i=0,j=0;
+	while(is[i]!='\0'){
+		if(is[i]<'0'||is[i]>'9')
+			os[j++]=is[i++];
+		else{
+			int n=is[i++]-'0';
+			char c='a'+n;
+			for(int k=1;k<=n+1;k++)
+				os[j++]=c;
+		}
+		os[j]='\0';}
+}
+void main(){
+	char istr[80],ostr[80];
+	cout<<"istr=?";
+	cin>>istr;
+	chgStr(istr,ostr);
+	cout<<"ostr="<<ostr<<endl;
+}

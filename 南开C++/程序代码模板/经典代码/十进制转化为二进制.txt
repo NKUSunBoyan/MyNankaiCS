@@ -1,0 +1,15 @@
+#include<iostream>
+using namespace std;
+void main()
+{
+	int a=1;
+	while(a){
+	int num,res[100],idx=0;
+	cin>>num;
+	while(num)
+	{res[idx++]=num%2;
+	num=num>>1;}
+	for(int i=idx-1;i>=0;i--)
+	{cout<<res[i];}
+	cout<<endl;}
+}

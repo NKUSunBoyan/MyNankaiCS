@@ -1,0 +1,27 @@
+#include<iostream>
+using namespace std;
+void main()
+{
+	const int n=6;
+	struct myStruType{
+		int regNum;
+		double score;
+	};
+	myStruType a[n];
+	int i;
+	cout<<"Input"<<n<<"regNums:"<<endl;
+	for(i=0;i<n;i++)
+		cin>>a[i].regNum;
+	cout<<"Input"<<n<<"score:"<<endl;
+	for(i=0;i<n;i++)
+		cin>>a[i].score;
+	double maxScore=a[0].score;
+	int idx=0;
+	for(i=1;i<n;i++)
+		if(a[i].score>maxScore){
+			maxScore=a[i].score;
+			idx=i;
+		}
+		cout<<"maxScore="<<maxScore<<endl;
+		cout<<"regNum="<<a[idx].regNum<<endl;
+}

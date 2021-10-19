@@ -1,0 +1,36 @@
+#include<iostream>
+#include<time.h>
+#include<iomanip>
+using namespace std;
+int main()
+{
+	int i;
+	srand((unsigned)time(NULL));
+	int nData[10];
+	for(i=0;i<10;i++)
+	{
+		nData[i]=rand()/100.0;
+		cout.setf(ios::left);
+		cout<<setw(10)<<nData[i];
+	}
+	cout<<endl;
+	for (i=0;i<10;i++)
+	{
+		for(int j=9;j>i;j--) //每一次都从最后一个数开始跟它之前的数比较，从前往后逐步确定每个数的数值；
+		{
+			if(nData[j]<nData[j-1])
+			{
+			int nTemp=nData[j];
+			nData[j]=nData[j-1];
+			nData[j-1]=nTemp;
+			}
+		}
+	}
+		for(i=0;i<10;i++)
+		{
+			cout.setf(ios::left);
+			cout<<setw(10)<<nData[i];
+		}
+		cout<<endl<<endl;
+		return 0;
+}

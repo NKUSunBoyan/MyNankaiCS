@@ -1,0 +1,32 @@
+#include<iostream>
+#include<stdlib.h>
+#include<time.h>
+using namespace std;
+void main(){
+	int ok=0,did=0;
+	char contin='y';
+	do{
+		srand((unsigned)time(NULL));
+		int first,second;
+		first=rand()%10;
+		second=rand()%10;
+		cout<<first<<'+'<<second<<"=?";
+		int answer,correct;
+		cin>>answer;
+		did++;
+		correct=first+second;
+		if(answer==correct){
+			cout<<"OK!good work!"<<endl;
+				ok++;
+		}
+		else
+			cout<<"NO!answer is:"<<correct<<endl;
+		cout<<"continue or not?(y,n):";
+		cin>>contin;
+		if(contin=='Y')
+			contin='y';
+	}
+	while(contin=='y');
+	cout<<"did="<<did<<", ok="<<ok<<", score=";
+	cout<<((ok==0)?0:ok/float(did)*100)<<endl;
+}

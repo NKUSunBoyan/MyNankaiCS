@@ -1,0 +1,1 @@
+#include <iostream>using namespace std;void main() {int n=5;		for(int i=1;i<=n;i++)	{		int result = 1;		for(int j=1;j<=i;j++);		{			result *=j;		}		cout<<"result = "<<result<<endl;	}	}

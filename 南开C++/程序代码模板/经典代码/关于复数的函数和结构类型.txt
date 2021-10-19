@@ -1,0 +1,36 @@
+#include<iostream>
+using namespace std;
+struct complex{
+	double r;
+	double i;
+};
+void in(complex&c){
+	cout<<"input c.r and c.i:";
+	cin>>c.r>>c.i;
+}
+complex add(complex c1,complex c2){
+	complex tmp;
+	tmp.r=c1.r+c2.r;
+	tmp.i=c1.i+c2.i;
+	return tmp;
+}
+complex sub(complex c1,complex c2){
+	complex tmp;
+	tmp.r=c1.r-c2.r;
+	tmp.i=c1.i-c2.i;
+	return tmp;
+}
+void out(complex c){
+	cout<<"("<<c.r<<","<<c.i<<")";
+}
+void main(){
+	complex tmp,c0={1,2},cA[5]={{3,6},{-3,-2},{2,-8},{-5,-8},{1,0}};
+	for(int i=0;i<5;i++){
+		tmp=add(c0,cA[i]);
+		out(tmp);
+	}
+	cout<<endl; in(tmp);
+	out(c0); cout<<"-";
+	out(tmp);cout<<"=";
+	out(sub(c0,tmp));cout<<endl;
+}

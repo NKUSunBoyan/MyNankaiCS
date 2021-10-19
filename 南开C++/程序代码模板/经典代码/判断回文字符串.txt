@@ -1,0 +1,43 @@
+#include<iostream>
+#include<string.h>
+using namespace std;
+bool myf1(char s[],int idx1,int idx2){
+	bool b=true;
+	while(idx2>=idx1){
+		if(s[idx1]!=s[idx2]){
+			b=false;
+			break;
+		}
+		else{
+			idx1++;
+			idx2--;
+		}
+	}
+		return b;
+}
+bool myf2(char s[],int idx1,int idx2){
+	if(idx2<=idx1)return true;
+	else{
+		if(s[idx1]!=s[idx2])return false;
+		else
+			return myf2(s,idx1+1,idx2-1);
+	}
+}
+void main(){
+	char s[81];
+	cout<<"Input a string:";
+	cin.getline(s,80);
+	int idx2=strlen(s)-1;
+	bool res=myf1(s,0,idx2);
+	cout<<"After calling myf1:"<<endl;
+	if(res)
+		cout<<s<<"=>is a palindrome!"<<endl;
+	else
+		cout<<s<<"=>is not a palindrome!"<<endl;
+	res=myf2(s,0,idx2);
+	cout<<"After calling myf2:"<<endl;
+	if(res)
+		cout<<s<<"=>is a palindrome!"<<endl;
+	else
+		cout<<s<<"=>is not a palindrome!"<<endl;
+}
